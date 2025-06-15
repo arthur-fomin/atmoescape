@@ -33,5 +33,6 @@
     "gitdoc.commitValidationLevel": "none",
     "gitdoc.timeZone": "Europe/Moscow",
     "gitdoc.commitMessageFormat": "yyyy-LL-DD-HH-mm-ss",
-    "peacock.remoteColor": "#035ffc"
+    "peacock.remoteColor": "#035ffc",
+    "gitdoc.enabled": true
 }

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import mors
+from pathlib import Path
 
 '''
 Потери атмосферы с учетом изменения светимости Солнца
@@ -75,6 +76,8 @@ def визуализация(о):
     ax2.set_ylim((ylims[0]/ к.s2yr) / к.Me,(ylims[1] / к.s2yr) / к.Me)
     ax2.set_yscale('log')
     ax2.set_ylabel(r'Скорость потери относительно массы [$M_{\oplus}$ $год^{-1}$]', fontsize=15)
-    plt.savefig('output/потеря_атмосфер_планетами_по_времени_модель_гамма.pdf', dpi=180)
+
+    Path('reports').mkdir(exist_ok=1, parents=1)
+    plt.savefig('reports/потеря_атмосфер_планетами_по_времени_модель_гамма.pdf', dpi=180)
 
 визуализация(Земля)

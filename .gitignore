@@ -119,7 +119,6 @@ e
 to_del
 generated
 package-lock.json  
-pgsql
-pgdata
 ideas
 articles
+reports
