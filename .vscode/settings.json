@@ -1,6 +1,11 @@
 {
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.fontFamily": "Consolas,monospace",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.mouseWheelZoom": true,
     "peacock.color": "#d46ce2",
-//    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.defaultInterpreterPath": "./.venv/bin/python",
     "python.terminal.activateEnvironment": false,
     "markdown.styles": [
         "css/my.css"
@@ -25,60 +30,8 @@
         "titleBar.inactiveBackground": "#035ffc99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "regexrobin.rules": [
-        {
-            "regex": "!(look) +([^\\n]+)",
-            "tree": {
-                "group": "links"
-            },
-            "editor": [
-                {
-                    "link": "vscode://file${fileDirname}/$2",
-                    "color": "#3639EF",
-                    "hoverMessage": "Open $2"
-                }
-            ]
-        },
-        {
-            "regex": "!(код)( `)+([^\\n`]+)",
-            "tree": {
-                "group": "links"
-            },
-            "editor": [
-                {
-                    "link": "vscode://file${workspaceFolder}/pgsql/postgres/src/$3",
-                    "color": "#3639EF",
-                    "hoverMessage": "Posgtgres код $3"
-                }
-            ]
-        },
-        {
-            "regex": "!(file) +([^\\n]+)",
-            "tree": {
-                "group": "links"
-            },
-            "editor": [
-                {
-                    "link": "vscode://file/$2",
-                    "color": "#3639EF",
-                    "hoverMessage": "Open $2"
-                }
-            ]
-        },
-        {
-            "regex": "(`./)+([^\\n\s]+)(`)",
-            "tree": {
-                "group": "links"
-            },
-            "editor": [
-                {
-                    "link": "vscode://file${fileDirname}/$2",
-                    "color": "#3639EF",
-                    "hoverMessage": "Open «${fileDirname}/$2»"
-                }
-            ]
-        }
-
-    ],
-     "peacock.remoteColor": "#035ffc"
+    "gitdoc.commitValidationLevel": "none",
+    "gitdoc.timeZone": "Europe/Moscow",
+    "gitdoc.commitMessageFormat": "yyyy-LL-DD-HH-mm-ss",
+    "peacock.remoteColor": "#035ffc"
 }
