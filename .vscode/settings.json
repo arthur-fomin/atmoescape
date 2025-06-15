@@ -1,0 +1,84 @@
+{
+    "peacock.color": "#d46ce2",
+//    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.terminal.activateEnvironment": false,
+    "markdown.styles": [
+        "css/my.css"
+    ],
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#357ffd",
+        "activityBar.background": "#357ffd",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#9e023b",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#357ffd",
+        "statusBar.background": "#035ffc",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#357ffd",
+        "statusBarItem.remoteBackground": "#035ffc",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#035ffc",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#035ffc99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "regexrobin.rules": [
+        {
+            "regex": "!(look) +([^\\n]+)",
+            "tree": {
+                "group": "links"
+            },
+            "editor": [
+                {
+                    "link": "vscode://file${fileDirname}/$2",
+                    "color": "#3639EF",
+                    "hoverMessage": "Open $2"
+                }
+            ]
+        },
+        {
+            "regex": "!(код)( `)+([^\\n`]+)",
+            "tree": {
+                "group": "links"
+            },
+            "editor": [
+                {
+                    "link": "vscode://file${workspaceFolder}/pgsql/postgres/src/$3",
+                    "color": "#3639EF",
+                    "hoverMessage": "Posgtgres код $3"
+                }
+            ]
+        },
+        {
+            "regex": "!(file) +([^\\n]+)",
+            "tree": {
+                "group": "links"
+            },
+            "editor": [
+                {
+                    "link": "vscode://file/$2",
+                    "color": "#3639EF",
+                    "hoverMessage": "Open $2"
+                }
+            ]
+        },
+        {
+            "regex": "(`./)+([^\\n\s]+)(`)",
+            "tree": {
+                "group": "links"
+            },
+            "editor": [
+                {
+                    "link": "vscode://file${fileDirname}/$2",
+                    "color": "#3639EF",
+                    "hoverMessage": "Open «${fileDirname}/$2»"
+                }
+            ]
+        }
+
+    ],
+     "peacock.remoteColor": "#035ffc"
+}

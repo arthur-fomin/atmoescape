@@ -1,0 +1,5 @@
+easydict
+sh
+matplotlib
+fwl-mors>=24.10.1
+#-e ../p-winds
