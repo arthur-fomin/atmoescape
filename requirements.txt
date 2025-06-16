@@ -6,4 +6,5 @@ sympy
 quantiphy
 PhysicalQuantities
 uncertainties
+pint
 #-e ../p-winds
