@@ -3,6 +3,7 @@ sh
 matplotlib
 fwl-mors>=24.10.1
 sympy
+ipykernel
 quantiphy
 PhysicalQuantities
 uncertainties
