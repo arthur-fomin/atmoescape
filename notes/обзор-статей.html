@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>обзор-статей.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+<link rel="stylesheet" href="file:///home/artur/atmoescape/css/my.css" type="text/css">
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h4 id="%D0%BE%D0%B1%D0%B7%D0%BE%D1%80-%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9">Обзор предложенных статей</h4>
+<ul>
+<li>
+<p><a href="../articles/2005-%D0%98%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%82%D0%BC%D0%BE%D1%81%D1%84%D0%B5%D1%80-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%82-%D0%B7%D0%B5%D0%BC%D0%BD%D0%BE%D0%B9-%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B.pdf">2005-Исследование-атмосфер-планет-земной-группы</a></p>
+</li>
+<li>
+<p>100500 противоречащих гипотез, в каждом абзаце</p>
+<ul>
+<li>
+<blockquote>
+<p>«Гипотеза о кометном происхождении атмо­сферы и океана была впервые
+предложена О.Ю. Шмидтом [6]. Современные расчеты [7, 8] показы­вают, что в результате случайных столкновений с кометами на Земле могло собраться количество воды, достаточное для формирования современного океана. Однако М.В. Герасимовым с коллегами на основе экспериментов было показано [9, 10], что масса выде­ляющихся при ударной дегазации летучих может на два порядка превысить массу современного океана. С дру­гой стороны, новое рассмотрение ударного взаимодей­ствия в механическом аспекте [11] показало, что при
+крупном ударе могла сохраниться не только атмосфера Земли, но и атмосфера ударника.…»</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«… Можно предположить, что у раннего Солнца (до ~ 4 Ga) мощность УФ излучения была в 100 раз больше, например, как у молодой звезды Т-Тельца. Однако вопрос о том, существовал ли такой мощный восходящий поток газа-носителя когда-либо в истории планет, остается открытым.»</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«… Причиной этого могло стать столк­новение с кометой или массовый выброс вулканических газов. Впрочем, модели включают много допущений, и
+достоверно ответить на вопрос о том, достаточно ли парникового эффекта для поддержания температуры поверхности на уровне 735 К, пока нельзя… »</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«… Хотя суперротация предсказана теоре­тически [36] и обоснована численными моделями для атмосфер Венеры и Титана, механизм, заставляющий
+вращаться атмосферу, до конца не ясен. …»</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>куча саморекламы</p>
+<ul>
+<li>
+<blockquote>
+<p>«На борту КА &quot;Венера-Экспресс&quot; будут находиться приборы, в создании кото­рых совместно с европейскими учеными принимали участие ученые И К И РАН.»</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>… именно исследования Венеры были единственной об­ластью фундаментальных космических исследований, где наша страна имела безусловный приоритет. Россий­ская промышленность накопила уникальный опыт соз­дания посадочных аппаратов для исследований Венеры …</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>несбывшиеся надежды</p>
+<ul>
+<li>
+<blockquote>
+<p>Сейчас эта планета оказалась почти забытой: &quot;Венера-Экспресс&quot; полетит к ней после более чем 15-летнего перерыва.</p>
+</blockquote>
+</li>
+<li>реальность: «…планировалось, что аппарат будет функционировать по крайней мере до конца 2016 года, однако <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%BD%D0%B5%D1%80%D0%B0-%D1%8D%D0%BA%D1%81%D0%BF%D1%80%D0%B5%D1%81%D1%81">28 ноября 2014 года аппарат потерял контроль высоты</a>…» 🚀💥</li>
+<li>
+<blockquote>
+<p>Проект, предусматривающий посадку на Венеру, с запу­ском в 2016 г., включен в Федеральную космическую программу. … Мы убеждены, что целью долгосроч­ной программы исследований России может и должна вновь стать Венера.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>отсутствуют модели</p>
+<ul>
+<li>вывод формул</li>
+<li>открытый код расчетов</li>
+<li>верификация наблюдениями</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><a href="../articles/2018-%D0%94%D0%98%D0%A1%D0%A1%D0%98%D0%9F%D0%90%D0%A6%D0%98%D0%AF-%D0%9F%D0%9B%D0%90%D0%9D%D0%95%D0%A2%D0%9D%D0%AB%D0%A5-%D0%90%D0%A2%D0%9C%D0%9E%D0%A1%D0%A4%D0%95%D0%A0.pdf">2018-ДИССИПАЦИЯ-ПЛАНЕТНЫХ-АТМОСФЕР</a></p>
+</li>
+<li>
+<p>Примерно тоже самое</p>
+<ul>
+<li>художественная литература
+<ul>
+<li>кривой PDF
+<ul>
+<li>не работает поиск и копирование</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>за моделями отсылка к англоязычным статьям и книгам</li>
+<li>формулы без вывода</li>
+</ul>
+</li>
+</ul>
+<p>![right](image-2.png =380x)</p>
+<ul>
+<li>Экзобаза Земли
+<ul>
+<li>$\approx$ 500 ка</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Теории</p>
+<ul>
+<li>
+<p><strong>тепловой диссипации</strong></p>
+</li>
+<li>
+<p>выше <em>экзобазы</em> (500-600 км для Земли ),</p>
+<ul>
+<li>атомы, быстрее выше второй космической, улетают</li>
+<li>не объясняет вынос тяжелых атомов
+<ul>
+<li>ТП → «стабильная азот­ная атмосфера на Луне».</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>столкновения</strong> планетеземалей и бомбардировка</p>
+<ul>
+<li>магия, немоделируемо</li>
+</ul>
+</li>
+<li>
+<p><strong>гидродинамический вынос</strong></p>
+<ul>
+<li>попробуем разобрать</li>
+</ul>
+</li>
+<li>
+<p><strong>излучение звезды</strong></p>
+<ul>
+<li>фотодиссоциация водорода</li>
+<li>нелинейная активность звезды
+<ul>
+<li>попробуем смоделировать</li>
+</ul>
+</li>
+<li>в англоязычных статьях моделируют только эти теории</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
