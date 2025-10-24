@@ -8,7 +8,7 @@
     "python.defaultInterpreterPath": "./.venv/bin/python",
     "python.terminal.activateEnvironment": false,
     "markdown.styles": [
-        "css/my.css"
+        "code-notes-infograph/css/code-notes.css"
     ],
     "workbench.colorTheme": "Default Light Modern",
     "workbench.colorCustomizations": {
